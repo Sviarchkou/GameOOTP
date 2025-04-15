@@ -29,9 +29,9 @@ namespace GameOOTP.GameElements.Figures
             };
         }
 
-        public override string ToString()
+        public override void setDefaultColor()
         {
-            return $"Hexagon;{X};{Y};{Height};{Width};{Velocity};{Accelerator};{Angle}";
+            Shape.Fill = Brushes.Purple;
         }
     }
 }

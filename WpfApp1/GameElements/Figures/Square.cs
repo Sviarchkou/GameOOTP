@@ -19,9 +19,9 @@ namespace GameOOTP.GameElements.Figures
                 Fill = Brushes.Red
             };
         }
-        public override string ToString()
+        public override void setDefaultColor()
         {
-            return $"Square;{X};{Y};{Height};{Width};{Velocity};{Accelerator};{Angle}";
+            Shape.Fill = Brushes.Red;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameOOTP.GameElements.Figures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.RightsManagement;
@@ -14,11 +15,7 @@ namespace GameOOTP.GameElements
         public double Accelerator { get; set; }
         public double Angle { get; set; }
 
-        public void MoveUniformly();
-        public void MoveUniformly(int velocity);
-        public void MoveAccelerated();
-        public void MoveAccelerated(int acelerator);
-        public void Bounce(Canvas canvas);
-        public void Update(Canvas canvas);
+        public void Bounce(Canvas canvas, List<Figure> figures);
+        public void Update(Canvas canvas, List<Figure> figures);
     }
 }

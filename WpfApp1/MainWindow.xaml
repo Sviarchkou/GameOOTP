@@ -5,128 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameOOTP"
         mc:Ignorable="d"
+        ResizeMode="CanResizeWithGrip"
+        AllowsTransparency="True"
         Title="MainWindow"
         Height="450"
         Width="800"
-        Background="Black" 
+        Background="OrangeRed" 
         KeyDown="Window_KeyDown"
         WindowStyle="None"
         WindowState="Maximized"
         SizeChanged="Window_SizeChanged"
         Loaded="Window_Loaded">
     <Grid>
-        
+
         <Canvas x:Name="GameCanvas" 
                 Height="400" 
                 Width="750" 
                 Background="Aquamarine"/>
 
-        <Grid x:Name="MenuGrid"
-              Grid.RowSpan="2"
-              Height="300" 
-              Width="300" 
-              Background="Bisque"
-              Grid.ColumnSpan="3"
-              Visibility="Collapsed">
-
-            <StackPanel x:Name="MenuPanel"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-                <TextBlock Text="Menu"
-                           FontSize="52"
-                           Margin="10"
-                           TextAlignment="Center"
-                           FontWeight="Bold"
-                           Foreground="Black"/>
-
-                <Button x:Name="StartButton"
-                        Background="Transparent"                        
-                        BorderBrush="Transparent"
-                        Click="StartButton_Click"
-                        MouseEnter="ButtonMouseEnter"
-                        MouseLeave="ButtonMouseLeave"
-                        Content="Start"
-                        TextBlock.TextAlignment="Center"
-                        FontSize="35"
-                        Foreground="Black">
-                </Button>
-
-                <Button x:Name="LoadButton"
-                        Background="Transparent"                        
-                        BorderBrush="Transparent"                        
-                        MouseEnter="ButtonMouseEnter"
-                        MouseLeave="ButtonMouseLeave"
-                        Click="LoadButton_Click">                    
-                    <TextBlock Text="Load"
-                        FontSize="35"
-                        TextAlignment="Center"                        
-                        Foreground="Black"/>
-                </Button>
-
-                <Button x:Name="SaveButton"
-                        Background="Transparent"
-                        MouseEnter="ButtonMouseEnter"
-                        MouseLeave="ButtonMouseLeave"                       
-                        BorderBrush="Transparent"
-                        Click="SaveButton_Click">
-                    <TextBlock Text="Save"
-                        FontSize="35"
-                        TextAlignment="Center"                        
-                        Foreground="Black"/>
-                </Button>
-
-                <Button x:Name="FinishButton"
-                        Background="Transparent"                        
-                        BorderBrush="Transparent"
-                        MouseEnter="ButtonMouseEnter"
-                        MouseLeave="ButtonMouseLeave"
-                        Click="FinishButton_Click">
-                    <TextBlock Text="Finish"
-                        FontSize="35"
-                        TextAlignment="Center"                        
-                        Foreground="Black"/>
-                </Button>
-                <Button x:Name="SettingsButton"
-                        Background="Transparent"                        
-                        BorderBrush="Transparent"
-                        MouseEnter="ButtonMouseEnter"
-                        MouseLeave="ButtonMouseLeave"
-                        Click="SettingsButton_Click">
-                    <TextBlock Text="Settings"
-                        FontSize="35"
-                        TextAlignment="Center"                        
-                        Foreground="Black"/>
-                </Button>
-            </StackPanel>
-
-
-            <StackPanel x:Name="SettingsPanel"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Visibility="Collapsed">
-                <TextBlock Text="Settings"
-                   FontSize="52"
-                   Margin="10"
-                   TextAlignment="Center"
-                   FontWeight="Bold"
-                   Foreground="Black"/>
-
-                <Button x:Name="BackToMenuButton"
-                        
-                        Background="Transparent"                        
-                        BorderBrush="Transparent"
-                        MouseEnter="ButtonMouseEnter"
-                        MouseLeave="ButtonMouseLeave"
-                        Click="BackToMenuButton_Click">
-                    <TextBlock Text="Back to menu"
-                        FontSize="35"
-                        TextAlignment="Center"                        
-                        Foreground="AliceBlue"/>
-                </Button>
-                
-            </StackPanel>
-
-        </Grid>
+       
     </Grid>
-    
 </Window>

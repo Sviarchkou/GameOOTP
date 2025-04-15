@@ -19,23 +19,10 @@ namespace GameOOTP.GameElements.Figures
                 Fill = Brushes.Navy
             };
         }
-        public override string ToString()
-        {
-            return $"Circle;{X};{Y};{Height};{Width};{Velocity};{Accelerator};{Angle}";
-        }
 
-        public Circle getInstanceFromFileString(string str)
+        public override void setDefaultColor()
         {
-            string[] strs = str.Split(";");
-            X = double.Parse(strs[1]);
-            Y = double.Parse(strs[2]);
-            Height = int.Parse(strs[3]);
-            Width = int.Parse(strs[4]);
-            Velocity = double.Parse(strs[5]);
-            Accelerator = double.Parse(strs[6]);
-            Angle = double.Parse(strs[7]);
-
-            return this;
+            Shape.Fill = Brushes.Navy;
         }
 
     }

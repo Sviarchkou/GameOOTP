@@ -17,6 +17,10 @@ namespace GameOOTP.GameElements
         public RoutedEventHandler LoadButtonClickEvent { set => LoadButton.Click += value; }
         public RoutedEventHandler SaveButtonClickEvent { set => SaveButton.Click += value; }
         public RoutedEventHandler FinishButtonClickEvent { set => FinishButton.Click += value; }
+        public RoutedEventHandler FigureAddButtonClickEvent { set => plusCountButton.Click += value; }
+        public RoutedEventHandler FigureRemoveButtonClickEvent { set => minusCountButton.Click += value; }
+        public RoutedEventHandler FigureEnlargeButtonClickEvent { set => plusSizeButton.Click += value; }
+        public RoutedEventHandler FigureReduceButtonClickEvent { set => minusSizeButton.Click += value; }
 
 
         Grid grid = new Grid()
@@ -36,8 +40,20 @@ namespace GameOOTP.GameElements
             VerticalAlignment = VerticalAlignment.Center,
             Visibility = Visibility.Collapsed,
         };
-
-
+        StackPanel figureCountPanel = new StackPanel()
+        {
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+            Orientation = Orientation.Horizontal,
+            Width = Double.NaN           
+        };
+        StackPanel figureSizePanel = new StackPanel()
+        {
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+            Orientation = Orientation.Horizontal,
+            Width = Double.NaN
+        };
         /// <summary>
         /// Buttons
         /// </summary>
@@ -87,10 +103,52 @@ namespace GameOOTP.GameElements
         {
             Background = Brushes.Transparent,
             BorderBrush = Brushes.Transparent,
-            Content = "Bask to menu",
+            Content = "Back to menu",
             Foreground = Brushes.Black,
             BorderThickness = new Thickness(0)
         };
+        
+        Button plusCountButton = new Button()
+        {
+            Background = Brushes.Transparent,
+            BorderBrush = Brushes.Transparent,
+            Content = "+",
+            FontWeight = FontWeights.Bold,
+            Foreground = Brushes.Black,
+            BorderThickness = new Thickness(0),
+            HorizontalAlignment = HorizontalAlignment.Center
+        };
+        Button minusCountButton = new Button()
+        {
+            Background = Brushes.Transparent,
+            BorderBrush = Brushes.Transparent,
+            Content = "-",
+            FontWeight = FontWeights.Bold,
+            Foreground = Brushes.Black,
+            BorderThickness = new Thickness(0),
+            HorizontalAlignment = HorizontalAlignment.Center
+        };
+        Button plusSizeButton = new Button()
+        {
+            Background = Brushes.Transparent,
+            BorderBrush = Brushes.Transparent,
+            Content = "+",
+            FontWeight = FontWeights.Bold,
+            Foreground = Brushes.Black,
+            BorderThickness = new Thickness(0),
+            HorizontalAlignment = HorizontalAlignment.Center
+        };
+        Button minusSizeButton = new Button()
+        {
+            Background = Brushes.Transparent,
+            BorderBrush = Brushes.Transparent,
+            Content = "-",
+            FontWeight = FontWeights.Bold,
+            Foreground = Brushes.Black,
+            BorderThickness = new Thickness(0),
+            HorizontalAlignment = HorizontalAlignment.Center
+        };
+
 
         /// <summary>
         /// TextBlocks
@@ -110,6 +168,43 @@ namespace GameOOTP.GameElements
             FontWeight = FontWeights.Bold,
             TextAlignment = TextAlignment.Center,
             Foreground = Brushes.Black
+        };
+
+        private TextBlock figureCountLabelText = new TextBlock()
+        {
+            Text = "Count of figures",
+            FontWeight = FontWeights.Bold,
+            TextAlignment = TextAlignment.Center,
+            Foreground = Brushes.Black,
+            Margin = new Thickness(5)
+        };
+        private TextBlock figureCountText = new TextBlock()
+        {
+            Background = Brushes.White,
+            FontWeight = FontWeights.Bold,
+            TextAlignment = TextAlignment.Center,
+            Foreground = Brushes.Black,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            Margin = new Thickness(5)
+
+        };
+        private TextBlock figureSizeLabelText = new TextBlock()
+        {
+            Text = "Size of figures",
+            FontWeight = FontWeights.Bold,
+            TextAlignment = TextAlignment.Center,
+            Foreground = Brushes.Black,
+            Margin = new Thickness(5)
+        };
+        private TextBlock figureSizeText = new TextBlock()
+        {
+            Background = Brushes.White,
+            FontWeight = FontWeights.Bold,
+            TextAlignment = TextAlignment.Center,
+            Foreground = Brushes.Black,
+            Margin = new Thickness(5),
+            HorizontalAlignment = HorizontalAlignment.Center
+
         };
 
 
@@ -135,35 +230,65 @@ namespace GameOOTP.GameElements
 
                 MenuText.Height = base.Height / 6;
                 MenuText.FontSize = MenuText.Height * 3 / 5;
-                //MenuText.Margin = new Thickness(0, 0, 0, Height * 5 / 6);
-
+                
                 StartButton.Height = base.Height / 6;
                 StartButton.FontSize = StartButton.Height * 3 / 5;
-                //StartButton.Margin = new Thickness(0, Height * 1 / 6, 0, Height * 4 / 6);
-
+                
                 LoadButton.Height = base.Height / 6;
                 LoadButton.FontSize = LoadButton.Height * 3 / 5;
-                //LoadButton.Margin = new Thickness(0, Height * 2 / 6, 0, Height * 3 / 6);
-
+                
                 SaveButton.Height = base.Height / 6;
                 SaveButton.FontSize = SaveButton.Height * 3 / 5;
-                //SaveButton.Margin = new Thickness(0, Height * 3 / 6, 0, Height * 2 / 6);
-
+                
                 FinishButton.Height = base.Height / 6;
                 FinishButton.FontSize = FinishButton.Height * 3 / 5;
-                //FinishButton.Margin = new Thickness(0, Height * 4 / 6, 0, Height * 1 / 6);
-
+                
                 SettingsButton.Height = base.Height / 6;
-                SettingsButton.FontSize = SettingsButton.Height * 3 / 5;
-                //SettingsButton.Margin = new Thickness(0, Height * 5 / 6, 0, 0);
+                SettingsButton.FontSize = SettingsButton.Height * 3 / 5;                
 
                 SettingsText.Height = base.Height / 6;
                 SettingsText.FontSize = SettingsText.Height * 3 / 5;
-                //SettingsText.Margin = new Thickness(0, 0, 0, Height * 5 / 6);
 
                 BackToMenuButton.Height = base.Height / 6;
                 BackToMenuButton.FontSize = BackToMenuButton.Height * 3 / 5;
-                //BackToMenuButton.Margin = new Thickness(0, Height * 5 / 6, 0, 0);
+
+               
+                figureCountLabelText.Height = base.Height / 10;
+                figureCountLabelText.FontSize = figureCountLabelText.Height * 4 / 5;
+
+
+                figureCountPanel.Height = base.Height / 6;
+
+                plusCountButton.Height = base.Height / 6;
+                minusCountButton.Height = base.Height / 6;
+                figureCountText.Height = base.Height / 6;
+
+                plusCountButton.Width = plusCountButton.Height;
+                minusCountButton.Width = minusCountButton.Height;
+                figureCountText.Width = 2 * figureCountText.Height;
+                
+                plusCountButton.FontSize = plusCountButton.Height * 3 / 5;
+                minusCountButton.FontSize = minusCountButton.Height * 3 / 5;                
+                figureCountText.FontSize = figureCountText.Height * 3 / 5;
+
+                
+                figureSizeLabelText.Height = base.Height / 10;
+                figureSizeLabelText.FontSize = figureSizeLabelText.Height * 4 / 5;
+
+
+                figureSizePanel.Height = base.Height / 6;
+
+                plusSizeButton.Height = base.Height / 6;
+                minusSizeButton.Height = base.Height / 6;
+                figureSizeText.Height = base.Height / 6;
+
+                plusSizeButton.Width = plusSizeButton.Height;
+                minusSizeButton.Width = minusSizeButton.Height;
+                figureSizeText.Width = 2 * figureSizeText.Height;
+
+                plusSizeButton.FontSize = plusSizeButton.Height * 3 / 5;
+                minusSizeButton.FontSize = minusSizeButton.Height * 3 / 5;
+                figureSizeText.FontSize = figureSizeText.Height * 3 / 5;
 
             }
         }
@@ -189,6 +314,12 @@ namespace GameOOTP.GameElements
                 FinishButton.Width = value;
                 SettingsButton.Width = value;
                 SettingsText.Width = value;
+                figureCountLabelText.Width = value;
+                figureSizeLabelText.Width = value;
+
+                // figureCountPanel.Width = value;
+               //  double marginValue = (value - 4 * figureCountPanel.Height) / 2;
+                // figureCountPanel.pa = new Thickness(marginValue, 0, marginValue, 0);
             }
 
         }
@@ -206,7 +337,7 @@ namespace GameOOTP.GameElements
             MenuVisibility = Visibility.Collapsed;
             InitializeComponent();
         }
-
+        
         private void InitializeComponent()
         {
             SettingsButton.Click += SettingsButtonClickEvent;
@@ -219,12 +350,31 @@ namespace GameOOTP.GameElements
             menuStackPanel.Children.Add(SettingsButton);
             menuStackPanel.Children.Add(FinishButton);
 
+            
+            figureCountPanel.Children.Add(minusCountButton);
+            figureCountPanel.Children.Add(figureCountText); 
+            figureCountPanel.Children.Add(plusCountButton);
+
+            
+            figureSizePanel.Children.Add(minusSizeButton);
+            figureSizePanel.Children.Add(figureSizeText);
+            figureSizePanel.Children.Add(plusSizeButton);
+
+
             settingsStackPanel.Children.Add(SettingsText);
+            settingsStackPanel.Children.Add(figureCountLabelText);
+            settingsStackPanel.Children.Add(figureCountPanel);
+            settingsStackPanel.Children.Add(figureSizeLabelText);
+            settingsStackPanel.Children.Add(figureSizePanel);
             settingsStackPanel.Children.Add(BackToMenuButton);
 
             grid.Children.Add(menuStackPanel);
             grid.Children.Add(settingsStackPanel);
         }
+
+        public void setFigureCount(int value) => figureCountText.Text = value.ToString();
+        public void setFigureSize(int value) => figureSizeText.Text = value.ToString();
+
 
         private void BackToMenuButton_Click(object sender, RoutedEventArgs e)
         {
@@ -237,6 +387,7 @@ namespace GameOOTP.GameElements
             Canvas.SetTop(grid, Y - Height / 2);
             Canvas.SetLeft(grid, X - base.Width / 2);
             canvas.Children.Add(grid);
+            
             return this;
         }
 
@@ -245,5 +396,7 @@ namespace GameOOTP.GameElements
             menuStackPanel.Visibility = Visibility.Collapsed;
             settingsStackPanel.Visibility = Visibility.Visible;
         }
+
+        public Grid getGrid => grid;
     }
 }
